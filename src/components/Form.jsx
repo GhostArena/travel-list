@@ -36,7 +36,7 @@ const Form = () => {
           <input
             type="text"
             placeholder="Item..."
-            className="px-10 py-2 rounded-full"
+            className="px-6 py-2 rounded-full"
           />
         </div>
         <button className="px-8 py-2 rounded-full bg-slate-600 text-white">
