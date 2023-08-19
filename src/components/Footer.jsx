@@ -4,6 +4,15 @@ const Footer = ({ items }) => {
   const packedList = items.length;
   const numberPacked = items.filter((item) => item.packed).length;
   const percentage = (numberPacked / packedList) * 100;
+
+  if (!items.length) {
+    return (
+      <footer className="h-[10vh] w-full flex items-center justify-center bg-black text-white px-4 py-8">
+        <p className="italic">Let's add some items, shall we ❤️</p>
+      </footer>
+    );
+  }
+
   return (
     <footer className="h-[10vh] w-full flex items-center justify-center bg-black text-white px-4 py-8">
       {percentage === 100 ? (
