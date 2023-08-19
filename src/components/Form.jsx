@@ -1,10 +1,24 @@
 import React from "react";
 import { AiFillCaretDown } from "react-icons/ai";
+import { useState } from "react";
 
-const Form = () => {
+const Form = ({ onAddItems }) => {
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+
+    //Guard Clause
+    if (!description) return;
+
+    const newItem = { description, quantity, packed: false, id: Date.now() };
+    console.log(newItem);
+
+    onAddItems(newItem);
+
+    setDescription("");
+    setQuantity(1);
   };
 
   return (
@@ -16,11 +30,13 @@ const Form = () => {
       >
         <h2 className="text-xl">What do you need for your trip?</h2>
         <div className="flex flex-row gap-2 mb-8 sm:mb-0">
-          <div className="flex flex-row relative items-center gap-2 bg-white px-4 py-2 rounded-full">
+          <div className="flex flex-row relative items-center gap-2 bg-[#ffba20] px-4 py-2 rounded-full">
             <select
               name="dropdown"
               id=""
-              className="flex flex-row justify-center appearance-none"
+              className="flex flex-row justify-center appearance-none bg-none"
+              value={quantity}
+              onChange={(e) => setQuantity(Number(e.target.value))}
             >
               {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => {
                 return (
@@ -36,7 +52,10 @@ const Form = () => {
           <input
             type="text"
             placeholder="Item..."
-            className="px-6 py-2 rounded-full"
+            className="px-6 py-2 rounded-full bg-[#ffba20]"
+            value={description}
+            onSubmit={handleSubmit}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <button className="px-8 py-2 rounded-full bg-slate-600 text-white">
