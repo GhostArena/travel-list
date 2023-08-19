@@ -9,6 +9,7 @@ import React from "react";
 // ];
 
 const Lists = ({ items, onDeleteItem, onTick }) => {
+  // const sortBy = items.filter([]);
   return (
     <div className="bg-[#5b3d1c] text-white px-[20%] py-8 h-[60vh] w-full">
       <ul className="flex flex-wrap flex-col sm:flex-row items-center gap-2 justify-start">
@@ -33,6 +34,21 @@ const Lists = ({ items, onDeleteItem, onTick }) => {
           );
         })}
       </ul>
+
+      <div className="flex gap-4">
+        <select
+          value=""
+          id=""
+          className="flex flex-row justify-center appearance-none bg-yellow-300 px-4 py-2 rounded-full text-black font-medium"
+        >
+          <option value="input">Sort by Input Order</option>
+          <option value="description">Sort by Description Order</option>
+          <option value="packed">Sort by Packed Order</option>
+        </select>
+        <button className="bg-yellow-300 px-4 py-2 rounded-full text-black font-medium">
+          Clear Entire List
+        </button>
+      </div>
     </div>
   );
 };
