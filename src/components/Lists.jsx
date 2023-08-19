@@ -11,7 +11,7 @@ import React from "react";
 const Lists = ({ items, onDeleteItem, onTick }) => {
   // const sortBy = items.filter([]);
   return (
-    <div className="bg-[#5b3d1c] text-white px-[20%] py-8 h-[60vh] w-full">
+    <div className="flex bg-[#5b3d1c] text-white px-[20%] py-8 h-[60vh] w-full relative items-start justify-center">
       <ul className="flex flex-wrap flex-col sm:flex-row items-center gap-2 justify-start">
         {items.map((item) => {
           return (
@@ -35,7 +35,7 @@ const Lists = ({ items, onDeleteItem, onTick }) => {
         })}
       </ul>
 
-      <div className="flex gap-4">
+      <div className="absolute flex gap-4 bottom-8">
         <select
           value=""
           id=""
