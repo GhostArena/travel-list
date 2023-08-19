@@ -8,23 +8,27 @@ import React from "react";
 //   { id: 4, description: "Books", packed: true },
 // ];
 
-const Lists = ({ items }) => {
+const Lists = ({ items, onDeleteItem, onTick }) => {
   return (
     <div className="bg-[#5b3d1c] text-white px-[20%] py-8 h-[60vh] w-full">
       <ul className="flex flex-wrap flex-col sm:flex-row items-center gap-2 justify-start">
         {items.map((item) => {
           return (
             <li key={item.id} className="px-8 flex">
-              <p>
-                <span>{item.quantity} </span>
-                <span
-                  className="mr-4"
-                  style={item.packed ? { textDecoration: "line-through" } : {}}
-                >
-                  {item.description}
-                </span>
-              </p>
-              <button>❌</button>
+              <input
+                type="checkbox"
+                name=""
+                value={item.packed}
+                className="mr-2"
+                onChange={() => onTick(item.id)}
+              />
+              <span
+                className="mr-2"
+                style={item.packed ? { textDecoration: "line-through" } : {}}
+              >
+                {item.quantity} {item.description}
+              </span>
+              <button onClick={() => onDeleteItem(item.id)}>❌</button>
             </li>
           );
         })}

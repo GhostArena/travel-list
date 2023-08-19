@@ -21,6 +21,8 @@ const Form = ({ onAddItems }) => {
     setQuantity(1);
   };
 
+  
+
   return (
     <div className="bg-[#ff8f34] w-full h-full sm:h-[10vh] py-6 flex items-center justify-center">
       <form
