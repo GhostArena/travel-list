@@ -26,7 +26,7 @@ function App() {
       <Navbar />
       <Form onAddItems={handleAddItems} />
       <Lists items={items} onDeleteItem={handleDelete} onTick={handleTicked} />
-      <Footer />
+      <Footer items={items} />
     </div>
   );
 }
