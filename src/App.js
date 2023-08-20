@@ -21,11 +21,20 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   };
 
+  const handleClear = (items) => {
+    setItems((items) => []);
+  };
+
   return (
     <div className="App ">
       <Navbar />
       <Form onAddItems={handleAddItems} />
-      <Lists items={items} onDeleteItem={handleDelete} onTick={handleTicked} />
+      <Lists
+        items={items}
+        onDeleteItem={handleDelete}
+        onTick={handleTicked}
+        onClear={handleClear}
+      />
       <Footer items={items} />
     </div>
   );
